@@ -1,16 +1,21 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { SettingsService } from './settings/settings.service';
 import { HttpClient } from '@angular/common/http';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { async, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
+import { SettingsService } from './settings/settings.service';
+import { HostElementService } from './shared/modal/host/host-element.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [NoopAnimationsModule],
       declarations: [AppComponent],
-      providers: [SettingsService, { provide: HttpClient, useValue: {} }],
+      providers: [
+        SettingsService,
+        { provide: HttpClient, useValue: {} },
+        HostElementService
+      ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
