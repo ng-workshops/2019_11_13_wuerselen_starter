@@ -28,7 +28,7 @@ export class SettingsComponent implements OnInit {
   }
 
   save() {
-    this.settingsService.set(this.form.getRawValue()).subscribe(_ =>
+    this.settingsService.set(this.form.getRawValue()).subscribe(() =>
       this.snackBar.open('Settings save successfully.', '', {
         duration: 1000
       })
