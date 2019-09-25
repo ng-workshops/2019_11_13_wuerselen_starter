@@ -51,6 +51,6 @@ export class CustomerListComponent implements OnInit {
   }
 
   deleteCustomer(id: number) {
-    this.customerService.delete(id).subscribe(_ => this.reload$.next());
+    this.customerService.delete(id).subscribe(() => this.reload$.next());
   }
 }
