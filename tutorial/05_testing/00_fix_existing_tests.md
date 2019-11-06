@@ -10,6 +10,18 @@ beforeEach(() => {
 });
 ```
 
+## src/app/customers/customer/customer.component.spec.ts
+
+```ts
+beforeEach(async(() => {
+  TestBed.configureTestingModule({
+    declarations: [CustomerComponent, CustomerStatusPipe],
+    providers: [{ provide: Router, useValue: {} }],
+    schemas: [NO_ERRORS_SCHEMA]
+  }).compileComponents();
+}));
+```
+
 ## src/app/customers/store/effects/customer.effects.spec.ts
 
 ```ts

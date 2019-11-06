@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateService } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { SettingsService } from './settings/settings.service';
-import { HostElementService } from './shared/modal/host/host-element.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -14,7 +14,13 @@ describe('AppComponent', () => {
       providers: [
         SettingsService,
         { provide: HttpClient, useValue: {} },
-        HostElementService
+        {
+          provide: TranslateService,
+          useValue: {
+            setDefaultLang: () => {},
+            use: () => {}
+          }
+        }
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
@@ -33,6 +39,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('nav').children.length).toBe(5);
+    expect(compiled.querySelector('nav').children.length).toBe(7);
   }));
 });

@@ -10,10 +10,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
-import { CanClickDirective } from './directives/can-click.directive';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { IntegerValidatorDirective } from './input-integer/integer.validator.directive';
-import { ModalComponent } from './modal/modal.component';
 import { JoinPipe } from './pipes/join.pipe';
 
 @NgModule({
@@ -24,13 +22,7 @@ import { JoinPipe } from './pipes/join.pipe';
     MatCardModule,
     MatButtonModule
   ],
-  declarations: [
-    CanClickDirective,
-    InputIntegerComponent,
-    IntegerValidatorDirective,
-    ModalComponent,
-    JoinPipe
-  ],
+  declarations: [InputIntegerComponent, IntegerValidatorDirective, JoinPipe],
   exports: [
     CommonModule,
     FormsModule,
@@ -46,10 +38,9 @@ import { JoinPipe } from './pipes/join.pipe';
     MatSnackBarModule,
     MatTableModule,
     MatProgressBarModule,
-    MatCardModule,
-    CanClickDirective
+    MatCardModule
   ],
   providers: [],
-  entryComponents: [ModalComponent]
+  entryComponents: []
 })
 export class SharedModule {}
