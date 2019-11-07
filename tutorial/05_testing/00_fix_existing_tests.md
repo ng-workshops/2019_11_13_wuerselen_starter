@@ -105,3 +105,111 @@ beforeEach(async(() => {
   spyOn(store, 'dispatch').and.callThrough();
 }));
 ```
+
+## src/app/shared/modal/modal.component.spec.ts
+
+```ts
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalComponent } from './modal.component';
+
+describe('ModalComponent', () => {
+  let component: ModalComponent;
+  let fixture: ComponentFixture<ModalComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [MatCardModule, MatButtonModule, NoopAnimationsModule],
+      declarations: [ModalComponent]
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ModalComponent);
+    component = fixture.componentInstance;
+    component.modal = { title: 'test', message: 'tester', type: 'primary' };
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+```
+
+## src/app/home/info-box/info-box.component.spec.ts
+
+```ts
+beforeEach(async(() => {
+  TestBed.configureTestingModule({
+    declarations: [InfoBoxComponent],
+    providers: [MessageService],
+    schemas: [NO_ERRORS_SCHEMA]
+  }).compileComponents();
+}));
+```
+
+## src/app/home/info-item/info-item.component.spec.ts
+
+```ts
+beforeEach(async(() => {
+  TestBed.configureTestingModule({
+    declarations: [InfoItemComponent],
+    imports: [FormsModule]
+  }).compileComponents();
+}));
+```
+
+## src/app/home/home.component.spec.ts
+
+```ts
+beforeEach(async(() => {
+  TestBed.configureTestingModule({
+    imports: [FormsModule, MatCardModule],
+    declarations: [HomeComponent, InfoBoxComponent, InfoItemComponent],
+    providers: [MessageService, HostElementService, ModalService]
+  }).compileComponents();
+}));
+```
+
+## src/app/app.component.spec.ts
+
+```ts
+beforeEach(async(() => {
+  TestBed.configureTestingModule({
+    imports: [NoopAnimationsModule],
+    declarations: [AppComponent],
+    providers: [
+      SettingsService,
+      HostElementService,
+      { provide: HttpClient, useValue: {} },
+      {
+        provide: TranslateService,
+        useValue: {
+          setDefaultLang: () => {},
+          use: () => {}
+        }
+      }
+    ],
+    schemas: [NO_ERRORS_SCHEMA]
+  }).compileComponents();
+}));
+```
+
+## src/app/shared/directives/can-click.directive.spec.ts
+
+```ts
+import { CanClickDirective } from './can-click.directive';
+
+const elementStub: any = {};
+const rendererStub: any = {};
+
+describe('CanClickDirective', () => {
+  it('should create an instance', () => {
+    const directive = new CanClickDirective(elementStub, rendererStub);
+    expect(directive).toBeTruthy();
+  });
+});
+```

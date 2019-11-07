@@ -2,18 +2,16 @@
 
 > ng generate component home/impressum3
 
-## src/app/app-routing.module.ts
+## src/app/home/home-routing.module.ts
 
 ```ts
 ...
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'impressum', component: ImpressumComponent },
-  { path: 'impressum2', component: Impressum2Component },
-  { path: 'impressum3', component: Impressum3Component },
-  { path: '**', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: 'home/impressum', component: ImpressumComponent },
+  { path: 'home/impressum2', component: Impressum2Component },
+  { path: 'home/impressum3', component: Impressum3Component }
 ];
 
 ...
@@ -25,9 +23,9 @@ export const routes: Routes = [
 <nav>
   ...
 
-  <a routerLink="impressum" routerLinkActive="active">Impressum</a>
-  <a routerLink="impressum2" routerLinkActive="active">Impressum2</a>
-  <a routerLink="impressum3" routerLinkActive="active">Impressum3</a>
+  <a routerLink="home/impressum" routerLinkActive="active">Impressum</a>
+  <a routerLink="home/impressum2" routerLinkActive="active">Impressum2</a>
+  <a routerLink="home/impressum3" routerLinkActive="active">Impressum3</a>
 
   ...
 </nav>
@@ -40,14 +38,20 @@ import { HttpClient } from '@angular/common/http';
 import { translocoLoader } from './transloco.loader';
 import { TranslocoModule, TRANSLOCO_CONFIG, TranslocoConfig } from '@ngneat/transloco';
 import { TranslocoMessageFormatModule } from '@ngneat/transloco-messageformat';
+import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
     ...
+
     TranslocoModule,
     TranslocoMessageFormatModule.init(),
+
+    ...
   ],
   providers: [
+    ...
+
     translocoLoader,
     {
       provide: TRANSLOCO_CONFIG,
@@ -58,6 +62,8 @@ import { TranslocoMessageFormatModule } from '@ngneat/transloco-messageformat';
         defaultLang: 'en'
       }
     },
+
+    ...
   ]
   ...
 })
@@ -69,7 +75,14 @@ export class AppModule {}
 ```ts
 @NgModule({
   ...
-  imports: [CommonModule, FormsModule, MatCardModule, TranslocoModule]
+   imports: [
+    CommonModule,
+    HomeRoutingModule,
+    FormsModule,
+    TranslateModule,
+    MatCardModule,
+    TranslocoModule
+  ],
 })
 export class HomeModule {}
 ```

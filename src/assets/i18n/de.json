@@ -1,4 +1,8 @@
 {
+  "general": {
+    "lastupdatedAt": "Zuletzt gändert am ",
+    "copyright": "Copyright ACME Ltd"
+  },
   "impressum": {
     "career": "Karriere",
     "content": "Hier finden Sie ein paar rechtliche Informationen und andere interessante Dinge",
@@ -9,9 +13,5 @@
     "sitemap": "Sitemap",
     "title": "Impressum",
     "developers": "{gender, select, male{Mit Liebe erstellt von Herrn } female{Mit Liebe erstellt von Frau } other{Unsere Entwickler }} {name}"
-  },
-  "general": {
-    "lastupdatedAt": "Zuletzt gändert am ",
-    "copyright": "Copyright ACME Ltd"
   }
 }

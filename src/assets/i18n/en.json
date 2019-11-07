@@ -1,4 +1,8 @@
 {
+  "general": {
+    "lastupdatedAt": "Last updated at ",
+    "copyright": "Copyright ACME Ltd"
+  },
   "impressum": {
     "career": "Career",
     "content": "Here is some legal stuff and contact info.",
@@ -9,9 +13,5 @@
     "sitemap": "Sitemap",
     "title": "Site notice",
     "developers": "{gender, select, male{Proudly created by Mr } female{Proudly created by Mrs } other{Our developers }} {name}"
-  },
-  "general": {
-    "lastupdatedAt": "Last updated at ",
-    "copyright": "Copyright ACME Ltd"
   }
 }
